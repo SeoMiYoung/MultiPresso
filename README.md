@@ -56,13 +56,16 @@
 ## 📂 목차
 <div>
   <div><a href='#loudspeaker-서비스-프로세스'>:loudspeaker: 서비스 프로세스</a></div>
-  <div><a href="🙋‍♀-연령(Age)-모델-학습">🙋‍♀️ 연령(Age) 모델 학습</a></div>
+  <div><a href="#information_desk_person-연령(Age)-모델-학습">:information_desk_person: 연령(Age) 모델 학습</a></div>
+  <div><a href='#satisfied-감정(Emotion)-모델-학습'>:satisfied: 감정(Emotion) 모델 학습</a></div>
+  <div><a href='#thumbsup-메뉴-추천-알고리즘'>:thumbsup: 메뉴 추천 알고리즘</a></div>
+  <div><a href='#tada-서비스-시현'>:tada: 서비스 시현</a></div>
 </div>
 
 ## :loudspeaker: 서비스 프로세스
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/2e5b6e3e-99b1-4939-be5b-4eb9278c9e94)
 
-## 🙋‍♀️ 연령(Age) 모델 학습
+## :information_desk_person: 연령(Age) 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/age_model.h5 입니다.
 
 저희는 연령 모델에 대한 데이터셋을 다음의 세단계로 순차적으로 학습시켰습니다.
@@ -103,7 +106,7 @@
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
 
-## 😀 감정(Emotion) 모델 학습
+## :satisfied: 감정(Emotion) 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/emotion_model.h5 입니다.
 
 ### ☑️ 데이터셋을 결정하는데 있어서 발생한 시행착오
@@ -133,13 +136,13 @@ FER2013 데이터셋은 기존에는 7개의 감정으로 라벨링되어 있었
   <img width="500" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/3b2bf0b4-64e5-4e20-887b-e05376d7aa30">
 </div>
 
-## 🤔 메뉴 추천 알고리즘
+## :thumbsup: 메뉴 추천 알고리즘
 웹캠을 통해 사용자의 연령과 감정을 인식하면, 연령에 대한 음료 정렬 순서에서 상위 4개의 메뉴를 가져옵니다. 이 4개의 메뉴는 추천 메뉴로 띄우게 되는데,
 감정에 따라 추천 메뉴를 화면에 띄우는 순서가 달라집니다. 예측한 감정이 긍정일 경우 당이 낮은 순서대로, 부정일 경우 당이 높은 순서대로 재정렬해서 화면에 띄우고, neutral일 경우에는 받아온 순서 그대로 화면에 띄웁니다.
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a5291897-9c50-4631-b072-0342df96b0e2)
 
-## ✨ 서비스 시현 - 간단한 테스트 웹페이지
+## :tada: 서비스 시현
 딥러닝 모델을 만들고, 성능을 높히는 과정에 초점을 두어서, 웹페이지는 테스트용으로만 간단히 제작하였습니다.
 
 ![Animation](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/f69a0dce-4730-45d6-8ee6-f6c4da62bf03)
