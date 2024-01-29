@@ -24,7 +24,7 @@
 > 팀명: 멀티20들<br/>
 > 팀원: 서미영, 이유정, 안정민, 이채린
 
-## ⚙️ 사용 기술 스택
+## ⚙️ 사용 툴
 #### ✔️ ML(Machine Learning) / DL(Deep Learning)<br/>
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 ![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white)
