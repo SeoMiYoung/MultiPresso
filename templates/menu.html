@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BanaPresso - Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(241, 101, 138);
+            font-family: 'Open Sans', sans-serif; /* 프리텐다드 폰트 적용 */
+        }
+        .testHead {
+            margin: 0px 0px 20px 0px;
+            color: black;
+            text-decoration: underline;
+            border-radius: 8px;
+            width: 700px;
+            text-align: center;
+        }
+        .head {
+            padding: 5px;
+            /* background-color: rgba(255, 255, 255, 0.5);
+            border-top: 3px solid rgb(241, 101, 138);
+            border-bottom: 3px solid rgb(241, 101, 138); */
+            width: 640px;
+            text-align: center;
+        }
+        .menu-image {
+            width: 200px;
+            height: 300px;
+            padding: 2px;
+            margin: 5px;
+            object-fit: cover;
+            /* margin-right: 10px; */
+            border-radius: 10px;
+            border: 1px solid black;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        .menu-row {
+            margin-bottom: 20px;
+        }
+        #frameResultArea {
+            width: 900px;
+            border: 5px solid rgb(241, 101, 138);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            margin: 0 auto 20px auto; /* 수평 가운데 정렬 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+        #recommendMenuArea {
+            width: 900px;
+            /* background-color: rgb(242, 158, 163); */
+            background-color: rgb(227, 225, 225);
+            padding: 20px;
+            margin-bottom: 20px;
+            margin: 0px auto 0px auto; /* 수평 가운데 정렬 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #recommendMenuAreaDeco {
+            margin-top: 20px;
+            background-color: rgb(241, 182, 186, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px 10px;
+            border-radius: 15px;
+        }
+        #allMenuArea {
+            width: 900px;
+            background-color: rgb(227, 225, 225);
+            /* background-color: rgb(254, 176, 192); */
+            padding: 20px;
+            margin-bottom: 20px;
+            margin: 0px auto 20px auto; /* 수평 가운데 정렬 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #originalRecordEmotion {
+            background-color: antiquewhite;
+        }
+        #recordAge {
+            background-color: antiquewhite;
+        }
+        #recordEmotion {
+            background-color: antiquewhite;
+        }
+        #recordArea {
+            border-radius: 8px;
+            background-color: antiquewhite;
+            /* background-color: rgb(113, 173, 173); */
+            width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 10px;
+        }
+        #menuHeader {
+            background-color: white;
+            width: 900px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            position: relative;
+            margin: 30px auto 0px auto;
+            padding: 20px;
+            border-radius: 20px 20px 0px 0px;
+            box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.3);
+        }
+        #go_back_button {
+            position: absolute;
+            transition: translateY(-50%);
+            left: 30px;
+            width: 150px;
+            height: 50px;
+            background-color: transparent;
+            border: 2px rgb(241, 101, 138) solid;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #deco {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #deepResult {
+            text-align: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // age_records와 age_ranges에 전역적으로 접근할 수 있도록 JavaScript 변수로 선언
+        var age_records = JSON.parse('{{ age_records | tojson | safe }}');
+        var final_age = "{{ final_age }}";
+        
+        var emotion_records = JSON.parse('{{ emotion_records | tojson | safe }}');
+        var final_emotion = "{{ final_emotion }}"
+
+        var original_emotion_records = JSON.parse('{{ original_emotion_records | tojson | safe }}');
+        var original_final_emotion = "{{ original_final_emotion }}"
+
+    </script>
+    <script>
+        function goBack() {
+            window.location.href = "/";
+        }
+    </script>
+
+    <!-- <div id="frameResultArea">
+        <h2 class="testHead">출력 테스트</h2>
+        <p>
+            1. 각 프레임마다 예측한 Age와 Emotion의 결과를 출력합니다.<br/>
+            2. 최빈값을 통해 최종 Age와 Emotion을 결정합니다.
+        </p>
+
+        <div id="recordArea">
+            <div id="recordAge">
+                <ul>
+                    {% for age in age_records %}
+                        <li>{{ age }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        
+            <div id="recordEmotion">
+                <ul>
+                    {% for emotion in emotion_records %}
+                        <li>{{ emotion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="originalRecordEmotion">
+                <ul>
+                    {% for originalEmotion in original_emotion_records %}
+                        <li>{{ originalEmotion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    
+        <div>---------------------------------------------------------------------------------------------</div>
+        <p>
+            최종 나이: {{ final_age }}<br/>
+            최종 감정: {{ final_emotion }}
+        </p>
+    </div> -->
+
+
+    <div id="deco">
+        <img src="static/common/rabbit.png"/>
+    </div>    
+    <div id="menuHeader">
+        <button id="go_back_button" onclick="goBack()">처음으로</button>
+        <h2 style="font-size:40px;">주문하기</h2>
+    </div>
+    <!-- 추천 메뉴 이미지 나열 -->
+    <div id="recommendMenuArea">
+        <div id="deepResult">
+            <div id="deepResultDiv1">
+                ✔️ Final Age<br/>
+                ✔️ Final Emotion
+            </div>
+            <div id="deepResultDiv2">
+                &nbsp;: {{ final_age }}<br/>
+                &nbsp;: {{ final_emotion }}
+            </div>
+        </div>
+        <div id="recommendMenuAreaDeco">
+            <h2 class="head">딥러닝 인식 결과에 기반하여 제공하는 추천 메뉴 TOP4</h2>
+            <div id="recommended-menu-images"></div>
+        </div>
+    </div>
+
+    <!-- 전체 메뉴 이미지 나열 -->
+    <div id="allMenuArea">
+        <!-- <h2 class="head">전체 메뉴</h2> -->
+        <div id="all-menu-images">
+            <!-- 이미지를 3x4 그리드로 배치할 각 행을 나타내는 div 요소 -->
+            <div class="menu-row" id="row1"></div>
+            <div class="menu-row" id="row2"></div>
+            <div class="menu-row" id="row3"></div>
+        </div>
+    </div>
+
+    <script>
+        var recommendMenuArr; // recommendMenuArr 배열 선언 - 추천 메뉴를 위한 메뉴
+        var allMenuArr = [ // 전체 메뉴 
+            'Americano', 'CafeLatte', 'MilkCaramelMacchiato', 'ToffeeNutLatte', 
+            'StrawberryJuice', 'GrapefruitHoneyBlackTea', 'JavachipBanaccino', 'BlackSugarBubbleTea',
+            'RoastedGrainLatte', 'ChamomileTea', 'Sikhye', 'JujubeBlackHerbalTea' 
+        ];
+
+        // 두 번째 원소값을 기준으로 내림차순으로 배열을 재정렬하는 함수
+        function sortBySecondElementDescending(arr) {
+            arr.sort(function(a, b) {
+            return b[1] - a[1]; // 두 번째 원소를 기준으로 내림차순 정렬
+            });
+            return arr;
+        }   
+
+        // 두 번째 원소값을 기준으로 오름차순으로 배열을 재정렬하는 함수
+        function sortBySecondElementAscending(arr) {
+            arr.sort(function(a, b) {
+            return a[1] - b[1]; // 두 번째 원소를 기준으로 내림차순 정렬
+            });
+            return arr;
+        } 
+
+        if(final_age == '1-5') {
+            recommendMenuArr = [['StrawberryJuice', 73.15], ['Sikhye', 68.8], ['BlackSugarBubbleTea', 60.54], 
+            ['RoastedGrainLatte', 15.6], ['ChamomileTea', 0], ['GrapefruitHoneyBlackTea', 46.62], 
+            ['ToffeeNutLatte', 95.51], ['JavachipBanaccino', 95.51], ['JujubeBlackHerbalTea', 48.14], 
+            ['MilkCaramelMacchiato', 53.17], ['CafeLatte', 19], ['Americano', 0]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '6-10') {
+            recommendMenuArr = [['StrawberryJuice', 73.15], ['RoastedGrainLatte', 15.6], ['Sikhye', 68.8], 
+            ['BlackSugarBubbleTea', 60.54], ['ChamomileTea', 0], ['GrapefruitHoneyBlackTea', 46.62], 
+            ['ToffeeNutLatte', 95.51], ['JavachipBanaccino', 95.51], ['JujubeBlackHerbalTea', 48.14], 
+            ['MilkCaramelMacchiato', 53.17], ['CafeLatte', 19], ['Americano', 0]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '11-15') {
+            recommendMenuArr = [['StrawberryJuice', 73.15], ['GrapefruitHoneyBlackTea', 46.62], ['JavachipBanaccino', 95.51],
+            ['BlackSugarBubbleTea', 60.54], ['ToffeeNutLatte', 95.51], ['RoastedGrainLatte', 15.6], 
+            ['ChamomileTea', 0], ['Sikhye', 68.8], ['MilkCaramelMacchiato', 53.17], ['CafeLatte', 19], 
+            ['Americano', 0], ['JujubeBlackHerbalTea', 48.14]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '16-20') {
+            recommendMenuArr = [['JavachipBanaccino', 95.51], ['StrawberryJuice', 73.15], ['Americano', 0], ['CafeLatte', 19], 
+            ['ToffeeNutLatte', 95.51], ['BlackSugarBubbleTea', 60.54], ['GrapefruitHoneyBlackTea', 46.62], 
+            ['RoastedGrainLatte', 15.6], ['ChamomileTea', 0], ['Sikhye', 68.8], ['MilkCaramelMacchiato', 53.17], ['JujubeBlackHerbalTea', 48.14]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '21-26') {
+            recommendMenuArr = [['Americano', 0], ['GrapefruitHoneyBlackTea', 46.62], ['CafeLatte', 19], 
+            ['StrawberryJuice', 73.15], ['JavachipBanaccino', 95.51], ['ToffeeNutLatte', 95.51], ['MilkCaramelMacchiato', 53.17],
+            ['BlackSugarBubbleTea', 60.54], ['ChamomileTea', 0], ['RoastedGrainLatte', 15.6],  ['Sikhye', 68.8],  ['JujubeBlackHerbalTea', 48.14]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '27-32') {
+            recommendMenuArr = [['Americano', 0], ['CafeLatte', 19], ['GrapefruitHoneyBlackTea', 46.62],  
+            ['ToffeeNutLatte', 95.51], ['ChamomileTea', 0], ['StrawberryJuice', 73.15], ['Sikhye', 68.8], 
+            ['RoastedGrainLatte', 15.6], ['JavachipBanaccino', 95.51], ['BlackSugarBubbleTea', 60.54],
+            ['MilkCaramelMacchiato', 53.17], ['JujubeBlackHerbalTea', 48.14]];
+
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '33-39') {
+            recommendMenuArr = [['Americano', 0], ['CafeLatte', 19], ['ChamomileTea', 0], ['GrapefruitHoneyBlackTea', 46.62],  
+            ['ToffeeNutLatte', 95.51], ['MilkCaramelMacchiato', 53.17], ['Sikhye', 68.8], 
+            ['RoastedGrainLatte', 15.6], ['JavachipBanaccino', 95.51], ['BlackSugarBubbleTea', 60.54],
+            ['StrawberryJuice', 73.15], ['JujubeBlackHerbalTea', 48.14]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '40-48') {
+            recommendMenuArr = [['Americano', 0], ['ChamomileTea', 0], ['CafeLatte', 19], ['ToffeeNutLatte', 95.51], 
+            ['MilkCaramelMacchiato', 53.17], ['Sikhye', 68.8], ['RoastedGrainLatte', 15.6],
+            ['BlackSugarBubbleTea', 60.54], ['JujubeBlackHerbalTea', 48.14], ['GrapefruitHoneyBlackTea', 46.62],  
+            ['JavachipBanaccino', 95.51], ['StrawberryJuice', 73.15]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '49-56') {
+            recommendMenuArr = [['Americano', 0], ['ChamomileTea', 0], ['CafeLatte', 19], ['MilkCaramelMacchiato', 53.17], 
+            ['Sikhye', 68.8], ['ToffeeNutLatte', 95.51], ['JujubeBlackHerbalTea', 48.14], ['BlackSugarBubbleTea', 60.54],
+            ['RoastedGrainLatte', 15.6], ['GrapefruitHoneyBlackTea', 46.62],  
+            ['JavachipBanaccino', 95.51], ['StrawberryJuice', 73.15]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '57-65') {
+            recommendMenuArr = [['ChamomileTea', 0], ['Americano', 0], ['MilkCaramelMacchiato', 53.17], 
+            ['CafeLatte', 19], ['JujubeBlackHerbalTea', 48.14], ['Sikhye', 68.8], ['ToffeeNutLatte', 95.51], 
+            ['GrapefruitHoneyBlackTea', 46.62], ['RoastedGrainLatte', 15.6], 
+            ['JavachipBanaccino', 95.51], ['StrawberryJuice', 73.15], ['BlackSugarBubbleTea', 60.54]];
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else if(final_age == '66-116') {
+            recommendMenuArr = [['JujubeBlackHerbalTea', 48.14], ['ChamomileTea', 0], ['Americano', 0], ['CafeLatte', 19],
+            ['Sikhye', 68.8], ['RoastedGrainLatte', 15.6], ['MilkCaramelMacchiato', 53.17], ['ToffeeNutLatte', 95.51], 
+            ['GrapefruitHoneyBlackTea', 46.62], ['JavachipBanaccino', 95.51], ['StrawberryJuice', 73.15], ['BlackSugarBubbleTea', 60.54]]
+
+            if(final_emotion == 'negative') {
+                recommendMenuArr = sortBySecondElementDescending(recommendMenuArr.slice(0, 4));
+            }
+            if(final_emotion == 'non_negative') {
+                recommendMenuArr = sortBySecondElementAscending(recommendMenuArr.slice(0, 4));
+            }
+        }
+        else {
+            alert("[ERROR] 인식이 제대로 이루어지지 않았습니다.");
+        }
+
+        // 추천 메뉴 이미지 출력
+        var recommendedMenuDiv = document.getElementById('recommended-menu-images');
+        for (var i = 0; i < 4; i++) {
+            var img = document.createElement('img');
+            img.className = 'menu-image';
+            img.src = 'static/product/' + recommendMenuArr[i][0] + '.png';
+            recommendedMenuDiv.appendChild(img);
+        }
+
+        // 전체 메뉴 이미지 출력 - 3x4 그리드 형태로 배치
+        var allMenuDivs = [
+            document.getElementById('row1'),
+            document.getElementById('row2'),
+            document.getElementById('row3')
+        ];
+
+        var imgIndex = 0;
+        for (var i = 0; i < allMenuDivs.length; i++) {
+            var rowDiv = allMenuDivs[i];
+            for (var j = 0; j < 4; j++) {
+                var img = document.createElement('img');
+                img.className = 'menu-image';
+                img.src = 'static/product/' + allMenuArr[imgIndex] + '.png';
+                rowDiv.appendChild(img);
+                imgIndex++;
+
+                if (imgIndex >= allMenuArr.length) {
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
