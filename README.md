@@ -1,4 +1,4 @@
-![wave](https://capsule-render.vercel.app/api?type=wave&color=F1658A&height=200&text=MultiPresso)
+![wave](https://capsule-render.vercel.app/api?type=wave&color=FF9090&height=200&text=MultiPresso)
 
 <!--
 <div align="center">
@@ -6,6 +6,8 @@
 </div>
 -->
 
+<br/>
+<br/>
 
 ## 🥤 프로젝트 소개
 > 해당 프로젝트는 동국대 멀티미디어소프트웨어공학과 졸업작품으로 진행되었습니다.
