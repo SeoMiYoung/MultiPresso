@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif; /* 프리텐다드 폰트 적용 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            border: 2px solid #ccc; /* 테두리 스타일 및 두께 설정 */
+            border-radius: 10px; /* 테두리 모서리를 둥글게 만들기 */
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* 요소 사이의 간격 설정 */
+        }
+        #loading_page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 수직 중앙 정렬 */
+            align-items: center; /* 수평 중앙 정렬 */
+            gap: 10px; /* 요소 사이의 간격 설정 */
+            width: 100%; /* 컨테이너 전체 너비 사용 */
+        }
+        #video_feed {
+            width: 700px; /* 부모 요소에 맞게 이미지 가로 크기 조절 */
+            height: auto; /* 비율 유지 */
+            border: 7px solid rgb(241, 101, 138); /* 테두리 스타일 및 두께 설정 */
+            border-radius: 10px; /* 테두리 모서리를 둥글게 만들기 */
+        }
+        .load{
+            width: 90vw;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .droplet_spinner {
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+        }
+        .droplet_spinner .droplet {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: rgb(241, 101, 138);
+            border-radius: 50%;
+            transform-origin: center bottom;
+            animation: bounce 1.2s cubic-bezier(0.3, 0.01, 0.4, 1) infinite;
+        }
+
+        .droplet_spinner .droplet:nth-child(1) {
+            animation-delay: -0.4s;
+        }
+
+        .droplet_spinner .droplet:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        .droplet_spinner .droplet:nth-child(3) {
+            animation-delay: 0s;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="loading_page">
+            <h2>연령, 감정을 측정중입니다. 정면을 봐주세요.</h2>
+            <div class="load">
+                <div class="droplet_spinner">
+                    <div class="droplet"></div>
+                    <div class="droplet"></div>
+                    <div class="droplet"></div>
+                </div>
+            </div>
+            <img id="video_feed" src="{{ url_for('video_feed') }}" alt="Age Prediction">
+        </div>
+    </div>
+    <script>
+        // 10초 후 메뉴 페이지로 이동
+        setTimeout(function () {
+            window.location.href = "/menu";
+        }, 10000);
+    </script>
+</body>
+</html>
