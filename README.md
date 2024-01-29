@@ -107,6 +107,21 @@
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
 
+### ☑️ STEP1 결과와 STEP3 결과 비교
+웹캠 출연 모델 정보: 20대
+
+#### ✔️ STEP1 결과
+움직일때마다 예측 나이 변동이 심한 걸 확인할 수 있음
+<div>
+  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/4d968b07-e93e-4aa9-8a61-fb1b93044f66">
+</div>
+
+#### ✔️ STEP3 결과
+예측 성능이 많이 향상된 걸 확인할 수 있음
+<div>
+  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/365745b9-13ca-4a76-99ae-46cb8a8a0955">
+</div>
+
 ## :satisfied: 감정 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/emotion_model.h5 입니다.
 
