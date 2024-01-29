@@ -107,7 +107,7 @@
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
 
-### ☑️ STEP1 결과와 STEP3 결과 비교
+### ☑️ STEP1 결과와 STEP3 결과를 웹캠상으로(gif이미지 첨부) 비교
 웹캠 출연 모델 정보: 20대
 
 #### ✔️ STEP1 결과
