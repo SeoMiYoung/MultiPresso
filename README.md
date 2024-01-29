@@ -1,7 +1,10 @@
+![wave](https://capsule-render.vercel.app/api?type=wave&color=F1658A&height=150&text=MultiPresso)
 
+<!--
 <div align="center">
   <img width="400" alt="new_logo" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/bbb64103-f115-4d7f-b187-3cb32e55f2ad">
 </div>
+-->
 
 
 ## 🥤 프로젝트 소개
