@@ -4,7 +4,7 @@
 </div>
 
 
-## 프로젝트 소개
+## 🥤 프로젝트 소개
 > 해당 프로젝트는 동국대 멀티미디어소프트웨어공학과 졸업작품으로 진행되었습니다.
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/d784d7f8-724d-4747-9e0a-c3714c3625c8)
@@ -12,14 +12,14 @@
 여러분은 키오스크에서 메뉴를 주문하실 때, 마음에 드는 메뉴를 추천받으신적이 있으신가요?
 잘 없으셨을텐데요, 저희 팀원들은 동국대학교 근처 카페인 바나프레소를 자주 이용하면서, 키오스크 화면에 뜨는 추천 메뉴들이 사용자를 고려하지 않은 일반적인 추천 메뉴들이라는 점을 발견했습니다. 이에 따라, 키오스크가 사용자를 분석하여 사용자 맞춤의 추천 메뉴를 제공한다면 사용자의 편의성을 높일 수 있을 것이라고 생각했고, 따라서 해당 주제를 졸업 작품에 적용해보기로 했습니다. 
 
-## 프로젝트 기간
+## 🗓️ 프로젝트 기간
 > 2023.09.05 ~ 2023.12.15
 
-## 팀명과 팀원(Contributors)
+## 👩‍💻 팀명과 팀원(Contributors)
 > 팀명: 멀티20들<br/>
 > 팀원: 서미영, 이유정, 안정민, 이채린
 
-## 사용 기술 스택
+## ⚙️ 사용 기술 스택
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
@@ -33,10 +33,10 @@
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 
-## 서비스 프로세스
+## 📢 서비스 프로세스
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/2e5b6e3e-99b1-4939-be5b-4eb9278c9e94)
 
-## 연령(Age) 모델 학습
+## 🙋‍♀️ 연령(Age) 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/age_model.h5 입니다.
 
 저희는 연령 모델에 대한 데이터셋을 다음의 세단계로 순차적으로 학습시켰습니다.
@@ -77,7 +77,7 @@
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
 
-## 감정(Emotion) 모델 학습
+## 😀 감정(Emotion) 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/emotion_model.h5 입니다.
 
 ### ☑️ 데이터셋을 결정하는데 있어서 발생한 시행착오
@@ -107,13 +107,13 @@ FER2013 데이터셋은 기존에는 7개의 감정으로 라벨링되어 있었
   <img width="500" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/3b2bf0b4-64e5-4e20-887b-e05376d7aa30">
 </div>
 
-## 메뉴 추천 알고리즘
+## 🤔 메뉴 추천 알고리즘
 웹캠을 통해 사용자의 연령과 감정을 인식하면, 연령에 대한 음료 정렬 순서에서 상위 4개의 메뉴를 가져옵니다. 이 4개의 메뉴는 추천 메뉴로 띄우게 되는데,
 감정에 따라 추천 메뉴를 화면에 띄우는 순서가 달라집니다. 예측한 감정이 긍정일 경우 당이 낮은 순서대로, 부정일 경우 당이 높은 순서대로 재정렬해서 화면에 띄우고, neutral일 경우에는 받아온 순서 그대로 화면에 띄웁니다.
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a5291897-9c50-4631-b072-0342df96b0e2)
 
-## 서비스 시현 - 간단한 테스트 웹페이지
+## ✨ 서비스 시현 - 간단한 테스트 웹페이지
 딥러닝 모델을 만들고, 성능을 높히는 과정에 초점을 두어서, 웹페이지는 테스트용으로만 간단히 제작하였습니다.
 
 ![Animation](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/f69a0dce-4730-45d6-8ee6-f6c4da62bf03)
