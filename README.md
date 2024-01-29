@@ -81,10 +81,14 @@
 
 ### ☑️ FER2013 재라벨링
 FER2013 데이터셋은 기존에는 7개의 감정으로 라벨링되어 있었으나, 저희의 키오스크 시스템의 경우, 손님들이 주문하는 순간의 표정이 다양하지 않을 것이라고 판단하여 아래 사진과 같이 negative, non-negative, neutral 이렇게 3가지 감정으로 재분류하였습니다.
- ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/93b2c065-5640-40f9-873c-63edda4953bc)
+<div>
+  <img width="600" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/93b2c065-5640-40f9-873c-63edda4953bc">
+</div>
 
 ### ☑️ CNN 모델 학습
 연령과 동일하게 VGG기반 모델로 학습한 결과는 다음과 같습니다.
-![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/3b2bf0b4-64e5-4e20-887b-e05376d7aa30)
+<div>
+  <img width="500" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/3b2bf0b4-64e5-4e20-887b-e05376d7aa30">
+</div>
 
 
