@@ -56,8 +56,8 @@
 ## 📂 목차
 <div>
   <div><a href='#loudspeaker-서비스-프로세스'>:loudspeaker: 서비스 프로세스</a></div>
-  <div><a href="#information_desk_person-연령(Age)-모델-학습">:information_desk_person: 연령(Age) 모델 학습</a></div>
-  <div><a href='#satisfied-감정(Emotion)-모델-학습'>:satisfied: 감정(Emotion) 모델 학습</a></div>
+  <div><a href="#information_desk_person-연령&lpar;Age&rpar;-모델-학습">:information_desk_person: 연령(Age) 모델 학습</a></div>
+  <div><a href='#satisfied-감정&lpar;Emotion&rpar;-모델-학습'>:satisfied: 감정(Emotion) 모델 학습</a></div>
   <div><a href='#thumbsup-메뉴-추천-알고리즘'>:thumbsup: 메뉴 추천 알고리즘</a></div>
   <div><a href='#tada-서비스-시현'>:tada: 서비스 시현</a></div>
 </div>
