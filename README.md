@@ -56,8 +56,8 @@
 ## 📂 목차
 <div>
   <div><a href='#loudspeaker-서비스-프로세스'>:loudspeaker: 서비스 프로세스</a></div>
-  <div><a href="#information_desk_person-연령&lpar;Age&rpar;-모델-학습">:information_desk_person: 연령(Age) 모델 학습</a></div>
-  <div><a href='#satisfied-감정&lpar;Emotion&rpar;-모델-학습'>:satisfied: 감정(Emotion) 모델 학습</a></div>
+  <div><a href="#information_desk_person-연령-모델-학습">:information_desk_person: 연령 모델 학습</a></div>
+  <div><a href='#satisfied-감정-모델-학습'>:satisfied: 감정 모델 학습</a></div>
   <div><a href='#thumbsup-메뉴-추천-알고리즘'>:thumbsup: 메뉴 추천 알고리즘</a></div>
   <div><a href='#tada-서비스-시현'>:tada: 서비스 시현</a></div>
 </div>
@@ -65,7 +65,7 @@
 ## :loudspeaker: 서비스 프로세스
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/2e5b6e3e-99b1-4939-be5b-4eb9278c9e94)
 
-## :information_desk_person: 연령(Age) 모델 학습
+## :information_desk_person: 연령 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/age_model.h5 입니다.
 
 저희는 연령 모델에 대한 데이터셋을 다음의 세단계로 순차적으로 학습시켰습니다.
@@ -106,7 +106,7 @@
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
 
-## :satisfied: 감정(Emotion) 모델 학습
+## :satisfied: 감정 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/emotion_model.h5 입니다.
 
 ### ☑️ 데이터셋을 결정하는데 있어서 발생한 시행착오
