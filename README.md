@@ -54,10 +54,9 @@
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ## 📂 목차
-https://github.com/SeoMiYoung/MultiPresso?tab=readme-ov-file#-%EC%84%9C%EB%B9%84%EC%8A%A4-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4
 <div>
-  <div><a href='#📢서비스-프로세스'>📢 서비스 프로세스</a></div>
-  <div><a href="#🙋‍♀️-연령(Age)-모델-학습">🙋‍♀️ 연령(Age) 모델 학습</a></div>
+  <div><a href='📢서비스-프로세스'>📢 서비스 프로세스</a></div>
+  <div><a href="🙋‍♀️-연령(Age)-모델-학습">🙋‍♀️ 연령(Age) 모델 학습</a></div>
 </div>
 
 ## 📢 서비스 프로세스
