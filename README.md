@@ -1,4 +1,4 @@
-![wave](https://capsule-render.vercel.app/api?type=wave&color=F1658A&height=150&text=MultiPresso)
+![wave](https://capsule-render.vercel.app/api?type=wave&color=F1658A&height=200&text=MultiPresso)
 
 <!--
 <div align="center">
