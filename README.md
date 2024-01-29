@@ -121,6 +121,7 @@
 #### ✔️ 바꾼 데이터셋: FER2013
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/50d25ee2-b83a-44e9-8c93-477532f05787)
 
+- [Kaggle에서 다운로드](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data)
 - FER2013의 경우 약 35000장의 대규모 감정 데이터셋을 가지고 있음
 - 무표정 데이터셋 포함
 
