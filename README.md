@@ -21,6 +21,8 @@
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/2e5b6e3e-99b1-4939-be5b-4eb9278c9e94)
 
 ## 연령(Age) 모델 학습
+> 아래의 과정을 기반으로 학습된 연령 모델은 model/age_model.h5 입니다.
+
 저희는 연령 모델에 대한 데이터셋을 다음의 세단계로 순차적으로 학습시켰습니다.
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/919d61fb-9a1e-402e-892a-972ffb02ab63)
 ### ☑️ STEP1 - 기본 Dataset으로 학습
@@ -32,8 +34,8 @@
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/70d14e0f-e395-47fa-aa61-0f383d093bb5)
 #### ✔️ CNN 모델 선정
 - 준비한 데이터셋으로 VGG16, VGG19, ResNet 모델로 학습(에폭 30) 진행해서 결과 비교
-- VGG기반 모델들과 달리, ResNet 모델의 경우, 초기 학습 때 과적합의 문제가 발생(해결 과정에 대해서는 따로 카테고리로 빼놓음)
-- 비교 결과, VGG16이 성능이 제일 좋아서, VGG16으로 최종 모델을 결정하고, 에폭 100으로 재학습시킴
+- VGG기반 모델들과 달리, ResNet 모델의 경우, 초기 학습 때 과적합의 문제가 발생했으나, 모델의 layer를 단순화시키고 채널값을 3에서 1로 조절함으로써 해결할 수 있었음
+- 세 모델의 비교 결과, VGG16이 성능이 제일 좋아서, VGG16으로 최종 모델을 결정하고, 에폭 100으로 재학습시킴
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/9fefb729-8af0-4bfa-af44-5630c3808f7e)
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/aa9db400-8ca5-453e-82ab-fdfd492fe6d6)
@@ -58,4 +60,31 @@
   - 아래 사진을 보면 20대 학생을 STEP2 모델을 적용했을때는 33-39살로 예측했지만, STEP3 모델을 적용했을때는 27-32살로 예측되는 걸 확인할 수 있음
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
+
+## 감정(Emotion) 모델 학습
+> 아래의 과정을 기반으로 학습된 연령 모델은 model/emotion_model.h5 입니다.
+
+### ☑️ 데이터셋을 결정하는데 있어서 발생한 시행착오
+#### ✔️ 기존에 결정한 데이터셋: CK+
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/9ecce563-b96d-43a5-809b-1087db969e7b)
+
+- 기존에는 CK+ 데이터셋을 사용해서 학습 진행 --> 문제점 발견
+  - [문제점1] 무표정 데이터셋이 존재하지 않음 : 키오스크를 이용하는 대부분의 사용자는 무표정인데, 무표정 데이터셋이 없다는점은 원하는 결과를 얻기에는 큰 문제였음
+  - [문제점2] CK+는 데이터셋의 규모가 작아서 정확한 예측이 불가능하다고 판단
+  - [문제점3] 데이터셋이 매우 중앙에 위치한 얼굴로 구성되어있어서 웹캠과 같이 얼굴 움직임이 불안정한 경우, 정확한 예측을 하는데 취약하다고 판단
+
+#### ✔️ 바꾼 데이터셋: FER2013
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/50d25ee2-b83a-44e9-8c93-477532f05787)
+
+- FER2013의 경우 약 35000장의 대규모 감정 데이터셋을 가지고 있음
+- 무표정 데이터셋 포함
+
+### ☑️ FER2013 재라벨링
+FER2013 데이터셋은 기존에는 7개의 감정으로 라벨링되어 있었으나, 저희의 키오스크 시스템의 경우, 손님들이 주문하는 순간의 표정이 다양하지 않을 것이라고 판단하여 아래 사진과 같이 negative, non-negative, neutral 이렇게 3가지 감정으로 재분류하였습니다.
+ ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/93b2c065-5640-40f9-873c-63edda4953bc)
+
+### ☑️ CNN 모델 학습
+연령과 동일하게 VGG기반 모델로 학습한 결과는 다음과 같습니다.
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/3b2bf0b4-64e5-4e20-887b-e05376d7aa30)
+
 
