@@ -58,8 +58,10 @@
   <div><a href='#loudspeaker-서비스-프로세스'>:loudspeaker: 서비스 프로세스</a></div>
   <div><a href="#information_desk_person-연령-모델-학습">:information_desk_person: 연령 모델 학습</a></div>
   <div><a href='#satisfied-감정-모델-학습'>:satisfied: 감정 모델 학습</a></div>
+  <div><a href='#boom-ResNet-시행착오'>:boom: ResNet 시행착오</a></div>
   <div><a href='#thumbsup-메뉴-추천-알고리즘'>:thumbsup: 메뉴 추천 알고리즘</a></div>
   <div><a href='#tada-서비스-시현'>:tada: 서비스 시현</a></div>
+  
 </div>
 
 ## :loudspeaker: 서비스 프로세스
@@ -153,7 +155,7 @@ FER2013 데이터셋은 기존에는 7개의 감정으로 라벨링되어 있었
   <img width="500" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/3b2bf0b4-64e5-4e20-887b-e05376d7aa30">
 </div>
 
-## ResNet 시행착오
+## :boom: ResNet 시행착오
 저희는 위에서 언급했듯이, 준비한 데이터셋으로 VGG16, VGG19, ResNet 모델에 학습을 진행하였습니다. 
 VGG기반 모델들과 달리, ResNet 모델의 경우 과적합이 발생하였습니다.
 저희는 이 과적합의 원인을 찾기 위해 많은 시간들을 쏟았습니다.
