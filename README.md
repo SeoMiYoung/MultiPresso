@@ -205,3 +205,12 @@ VGG기반 모델들과 달리, ResNet 모델의 경우 과적합이 발생하였
 ```
 python base.py
 ```
+
+## 기대효과 및 한계점
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/8f4a4b5b-a99f-4f49-a0a3-bdb13d267bc9)
+
+해외매출전표
+매9출거래확인서 x
+환율 수수료
+
+
