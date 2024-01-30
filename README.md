@@ -107,12 +107,12 @@
  ┃ ┃ ┣ 📜Sikhye.png
  ┃ ┃ ┣ 📜StrawberryJuice.png
  ┃ ┃ ┗ 📜ToffeeNutLatte.png
- ┣ 📂templates
+ ┣ 📂templates // 테스트 웹페이지 구현 템플릿들
  ┃ ┣ 📜base.html
  ┃ ┣ 📜loading.html
  ┃ ┗ 📜menu.html
  ┣ 📜.gitattributes
- ┣ 📜base.py
+ ┣ 📜base.py // 테스트 웹페이지를 실행하는 파일
  ┣ 📜haarcascade_frontalface_default.xml
  ┗ 📜README.md
 ```
