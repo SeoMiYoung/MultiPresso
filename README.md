@@ -61,7 +61,8 @@
   <div><a href='#boom-ResNet-시행착오'>:boom: ResNet 시행착오</a></div>
   <div><a href='#thumbsup-메뉴-추천-알고리즘'>:thumbsup: 메뉴 추천 알고리즘</a></div>
   <div><a href='#tada-서비스-시현'>:tada: 서비스 시현</a></div>
-  
+  <div><a href='#eyes-기대효과-및-한계점'>:eyes: 기대효과 및 한계점</a></div>
+  <div><a href='#heartpulse-프로젝트-리뷰'>:heartpulse: 프로젝트 리뷰</a></div> 
 </div>
 
 ## :loudspeaker: 서비스 프로세스
@@ -206,11 +207,10 @@ VGG기반 모델들과 달리, ResNet 모델의 경우 과적합이 발생하였
 python base.py
 ```
 
-## 기대효과 및 한계점
+## :eyes: 기대효과 및 한계점
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/8f4a4b5b-a99f-4f49-a0a3-bdb13d267bc9)
 
-해외매출전표
-매9출거래확인서 x
-환율 수수료
+## :heartpulse: 프로젝트 리뷰
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/99ff86e3-a66f-421b-bdf7-af8f174533e4)
 
 
