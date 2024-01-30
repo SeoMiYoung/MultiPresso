@@ -113,7 +113,7 @@
 #### ✔️ STEP1 결과
 움직일때마다 예측 나이 변동이 심한 걸 확인할 수 있음
 <div>
-  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/f3dc69f2-7073-49a4-b959-ff865ffd99b2">
+  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/ee13ce09-92d4-4f38-a2c8-b45533aa766c">
 </div>
 
 
