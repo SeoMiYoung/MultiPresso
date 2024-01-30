@@ -58,8 +58,11 @@
   <div><a href='#loudspeaker-서비스-프로세스'>:loudspeaker: 서비스 프로세스</a></div>
   <div><a href="#information_desk_person-연령-모델-학습">:information_desk_person: 연령 모델 학습</a></div>
   <div><a href='#satisfied-감정-모델-학습'>:satisfied: 감정 모델 학습</a></div>
+  <div><a href='#boom-ResNet-시행착오'>:boom: ResNet 시행착오</a></div>
   <div><a href='#thumbsup-메뉴-추천-알고리즘'>:thumbsup: 메뉴 추천 알고리즘</a></div>
   <div><a href='#tada-서비스-시현'>:tada: 서비스 시현</a></div>
+  <div><a href='#eyes-기대효과-및-한계점'>:eyes: 기대효과 및 한계점</a></div>
+  <div><a href='#heartpulse-프로젝트-리뷰'>:heartpulse: 프로젝트 리뷰</a></div> 
 </div>
 
 ## :loudspeaker: 서비스 프로세스
@@ -107,6 +110,21 @@
 
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
 
+### ☑️ STEP1 결과와 STEP3 결과를 웹캠상으로(gif이미지 첨부) 비교
+웹캠 출연 모델 정보: 20대 초중반
+
+#### ✔️ STEP1 결과
+움직일때마다 예측 나이 변동이 심한 걸 확인할 수 있음
+<div>
+  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/ee13ce09-92d4-4f38-a2c8-b45533aa766c">
+</div>
+
+#### ✔️ STEP3 결과
+예측 값 변동이 심하지 않고, 예측 성능이 많이 향상된 걸 확인할 수 있음
+<div>
+  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/10a4bf9c-1f94-4ff9-959e-1baad1728705">
+</div>
+
 ## :satisfied: 감정 모델 학습
 > 아래의 과정을 기반으로 학습된 연령 모델은 model/emotion_model.h5 입니다.
 
@@ -138,6 +156,26 @@ FER2013 데이터셋은 기존에는 7개의 감정으로 라벨링되어 있었
   <img width="500" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/3b2bf0b4-64e5-4e20-887b-e05376d7aa30">
 </div>
 
+## :boom: ResNet 시행착오
+저희는 위에서 언급했듯이, 준비한 데이터셋으로 VGG16, VGG19, ResNet 모델에 학습을 진행하였습니다. 
+VGG기반 모델들과 달리, ResNet 모델의 경우 과적합이 발생하였습니다.
+저희는 이 과적합의 원인을 찾기 위해 많은 시간들을 쏟았습니다.
+
+### ☑️ [시도1] Shuffle값 조정, 에폭 늘리기, Layer 추가 -> 미해결
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/09ea2f75-d003-4cd6-948d-3cce78beb6b0)
+처음 ResNet에 오버피팅이 발생한 후, Shuffe값을 TRUE로 설정해보기, 에폭 늘려보기, Layer추가하기 등 다양한 방법을 시도했지만 위의 사진에서 보면 알 수 있듯이 과적합이 해결되지 않았습니다. 
+
+### ☑️ [시도2] Dropout, 언더샘플링, 오버샘플링 -> 미해결
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/60999224-8cc4-4e35-8761-8d0a62fd8162)
+과적합을 해결하는 방법들인 Dropout, 언더샘플링, 오버샘플링을 적용해보았지만 마찬가지로 과적합이 해결되지 않았습니다. 
+
+### ☑️ [시도3] 사전훈련된 모델을 사용하지 않기 & 채널 값 조정 & ResNet50에서 ResNet18로 변경 -> 해결
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/1c62770a-829f-453e-aa93-c855f23d928e)
+기존에 사용했던 ResNet50 모델이 사전에 훈련된 모델이였는데, 사전 훈련된 모델 말고, 모델을 저희가 사용하는 데이터셋에 맞게 구현해서 사용하였습니다. 또한 사실상 이미 프로젝트에는 VGG기반 모델을 사용하기로 결정했기 때문에 간단히 과적합의 원인만 찾기 위해서 ResNet50보다는 더 얕은 네트워크 구조를 가진 ResNet18로 변경하여서 원인을 찾기로 했습니다. 
+<br/>
+결정적으로 과적합의 원인을 찾을 수 있었던 가장 큰 이유는 채널 조정이었습니다.
+저희가 가진 데이터셋에는 흑백 이미지들과 컬러 이미지들이 모두 섞여있습니다. 기존에 저희는 채널3으로 학습을 시켰었는데요, 데이터셋에서 흑백 이미지들을 강제로 컬러 이미지로 바꾸는 과정속에서 문제가 발생했던 것 같습니다. 그래서 저희는 grayscale을 적용해, 채널을 3에서 1로 변경해서 학습시켰고, 이로써 과적합 원인을 해결할 수 있었습니다.
+
 ## :thumbsup: 메뉴 추천 알고리즘
 웹캠을 통해 사용자의 연령과 감정을 인식하면, 연령에 대한 음료 정렬 순서에서 상위 4개의 메뉴를 가져옵니다. 이 4개의 메뉴는 추천 메뉴로 띄우게 되는데,
 감정에 따라 추천 메뉴를 화면에 띄우는 순서가 달라집니다. 예측한 감정이 긍정일 경우 당이 낮은 순서대로, 부정일 경우 당이 높은 순서대로 재정렬해서 화면에 띄우고, neutral일 경우에는 받아온 순서 그대로 화면에 띄웁니다.
@@ -158,9 +196,21 @@ FER2013 데이터셋은 기존에는 7개의 감정으로 라벨링되어 있었
 - 웹캠에서 가장 앞에 있는 사람 한 명만을 감지하도록 구현
 - 예측 연령 범위가 변동이 심할 수 있기 때문에 moving average 적용
 - 각 프레임이 예측한 연령과 감정의 최빈값을 구해 최종적인 예측 연령과 감정 결정
+- 웹캠 좌측 상단에 confidence를 넣어서 모델이 예측한 결과에 대한 신뢰 수준을 확인할 수 있게 함
 
 ### ☑️ 메뉴 페이지
 - 최종적으로 결정된 예측 연령과 감정을 바탕으로, 전체 메뉴를 보여주기 전에 메뉴 페이지 상단에 추천 음료 4개를 띄움
 
+### ☑️ 실행 방법
+실행하기전에, html파일 내부의 경로들을 각자의 경로로 수정해야합니다.
+```
+python base.py
+```
+
+## :eyes: 기대효과 및 한계점
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/8f4a4b5b-a99f-4f49-a0a3-bdb13d267bc9)
+
+## :heartpulse: 프로젝트 리뷰
+![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/99ff86e3-a66f-421b-bdf7-af8f174533e4)
 
 
