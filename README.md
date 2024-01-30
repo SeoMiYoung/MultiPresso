@@ -116,11 +116,10 @@
   <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/ee13ce09-92d4-4f38-a2c8-b45533aa766c">
 </div>
 
-
 #### ✔️ STEP3 결과
-예측 성능이 많이 향상된 걸 확인할 수 있음
+예측 값 변동이 심하지 않고, 예측 성능이 많이 향상된 걸 확인할 수 있음
 <div>
-  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/365745b9-13ca-4a76-99ae-46cb8a8a0955">
+  <img width="200" src="https://github.com/SeoMiYoung/MultiPresso/assets/112063987/10a4bf9c-1f94-4ff9-959e-1baad1728705">
 </div>
 
 ## :satisfied: 감정 모델 학습
