@@ -108,7 +108,7 @@
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/a85b2cc3-030c-4431-93b6-79447cc9f6a4)
 
 ### ☑️ STEP1 결과와 STEP3 결과를 웹캠상으로(gif이미지 첨부) 비교
-웹캠 출연 모델 정보: 20대
+웹캠 출연 모델 정보: 20대 초중반
 
 #### ✔️ STEP1 결과
 움직일때마다 예측 나이 변동이 심한 걸 확인할 수 있음
