@@ -55,6 +55,7 @@
 
 ## 📂 목차
 <div>
+  <div><a href='#computer-디렉터리-구조'>:computer: 디렉터리 구조</a></div> 
   <div><a href='#loudspeaker-서비스-프로세스'>:loudspeaker: 서비스 프로세스</a></div>
   <div><a href="#information_desk_person-연령-모델-학습">:information_desk_person: 연령 모델 학습</a></div>
   <div><a href='#satisfied-감정-모델-학습'>:satisfied: 감정 모델 학습</a></div>
@@ -65,6 +66,56 @@
   <div><a href='#heartpulse-프로젝트-리뷰'>:heartpulse: 프로젝트 리뷰</a></div> 
 </div>
 
+## :computer: 디렉터리 구조
+```
+📦multi20_finalcode
+ ┣ 📂model // 최종 적용 모델 h5 파일
+ ┃ ┣ 📜age_model.h5
+ ┃ ┗ 📜emotion_model.h5
+ ┣ 📂practice // 코랩 pro plus에서 사용했던 학습 관련 파일들
+ ┃ ┣ 📂bright // 밝기 조절 관련 파일들
+ ┃ ┃ ┣ 📜age_add_darkedData.ipynb
+ ┃ ┃ ┣ 📜age_add_lightedData.ipynb
+ ┃ ┃ ┣ 📜Change_Darked.ipynb
+ ┃ ┃ ┣ 📜Change_Lighted.ipynb
+ ┃ ┃ ┣ 📜darked_UTK.csv
+ ┃ ┃ ┗ 📜lighted_UTK.csv
+ ┃ ┣ 📂capture // 직접 웹캠을 수집하고 학습시킬때 사용한 파일들
+ ┃ ┃ ┣ 📂image // 웹캠으로 수집한 사진들 저장(얼굴 사진들로, 깃헙에는 미첨부)
+ ┃ ┃ ┣ 📜age_add_webcam_captured.ipynb
+ ┃ ┃ ┣ 📜age_add_webcam_captured.txt
+ ┃ ┃ ┗ 📜capture.ipynb
+ ┃ ┗ 📂sample // 모델을 학습시키는데 있어서 사용한 ipynb파일들
+ ┃ ┃ ┣ 📜Age_Model_VGG16.ipynb
+ ┃ ┃ ┣ 📜Emotion_Model_CK_Plus.ipynb
+ ┃ ┃ ┗ 📜Emotion_Model_Fer2013.ipynb
+ ┣ 📂static // 정적 이미지 모음
+ ┃ ┣ 📂common
+ ┃ ┃ ┣ 📜logo.png
+ ┃ ┃ ┣ 📜new_logo.png
+ ┃ ┃ ┗ 📜rabbit.png
+ ┃ ┗ 📂product 
+ ┃ ┃ ┣ 📜americano.png
+ ┃ ┃ ┣ 📜BlackSugarBubbleTea.png
+ ┃ ┃ ┣ 📜CafeLatte.png
+ ┃ ┃ ┣ 📜ChamomileTea.png
+ ┃ ┃ ┣ 📜GrapefruitHoneyBlackTea.png
+ ┃ ┃ ┣ 📜JavachipBanaccino.png
+ ┃ ┃ ┣ 📜JujubeBlackHerbalTea.png
+ ┃ ┃ ┣ 📜MilkCaramelMacchiato.png
+ ┃ ┃ ┣ 📜RoastedGrainLatte.png
+ ┃ ┃ ┣ 📜Sikhye.png
+ ┃ ┃ ┣ 📜StrawberryJuice.png
+ ┃ ┃ ┗ 📜ToffeeNutLatte.png
+ ┣ 📂templates
+ ┃ ┣ 📜base.html
+ ┃ ┣ 📜loading.html
+ ┃ ┗ 📜menu.html
+ ┣ 📜.gitattributes
+ ┣ 📜base.py
+ ┣ 📜haarcascade_frontalface_default.xml
+ ┗ 📜README.md
+```
 ## :loudspeaker: 서비스 프로세스
 ![image](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/2e5b6e3e-99b1-4939-be5b-4eb9278c9e94)
 
@@ -187,10 +238,10 @@ VGG기반 모델들과 달리, ResNet 모델의 경우 과적합이 발생하였
 
 ![Animation](https://github.com/SeoMiYoung/MultiPresso/assets/112063987/f69a0dce-4730-45d6-8ee6-f6c4da62bf03)
 
-### ☑️ 첫 시작 페이지
+### ☑️ 첫 시작 페이지 - templates/base.html
 - 키오스크에서 사용자가 주문하기 버튼을 누름
 
-### ☑️ 로딩 페이지 (연령과 감정 예측)
+### ☑️ 로딩 페이지 (연령과 감정 예측) - templates/loading.html
 - 일정 시간동안 웹캠을 통하여 사용자의 얼굴 촬영
 - OpenCV를 사용하여 웹캠으로부터 영상 캡처
 - 웹캠에서 가장 앞에 있는 사람 한 명만을 감지하도록 구현
@@ -198,7 +249,7 @@ VGG기반 모델들과 달리, ResNet 모델의 경우 과적합이 발생하였
 - 각 프레임이 예측한 연령과 감정의 최빈값을 구해 최종적인 예측 연령과 감정 결정
 - 웹캠 좌측 상단에 confidence를 넣어서 모델이 예측한 결과에 대한 신뢰 수준을 확인할 수 있게 함
 
-### ☑️ 메뉴 페이지
+### ☑️ 메뉴 페이지 - templates/menu.html
 - 최종적으로 결정된 예측 연령과 감정을 바탕으로, 전체 메뉴를 보여주기 전에 메뉴 페이지 상단에 추천 음료 4개를 띄움
 
 ### ☑️ 실행 방법
